@@ -5,7 +5,7 @@ using UnityEngine;
 public class dieMovement : MonoBehaviour
 {
 
-    Transform p_mx, p_x, p_mz, p_z, die;
+    Transform p_mx, p_x, die;
 
     public float rotation_speed;
     
@@ -21,8 +21,6 @@ public class dieMovement : MonoBehaviour
     {
         this.p_x = this.transform.Find("pivot_X");
         this.p_mx = this.transform.Find("pivot_mX");
-        this.p_z = this.transform.Find("pivot_Z");
-        this.p_mz = this.transform.Find("pivot_mZ");
         this.die = this.transform.Find("Die");
     }
 
@@ -39,7 +37,7 @@ public class dieMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         if(is_rotating)
         {
@@ -63,16 +61,16 @@ public class dieMovement : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown("up"))
+        if (Input.GetKey("up"))
         {
             prep_rotation(new Vector3(90.0f, 0.0f, 0.0f), this.p_x, new Vector3(0, 0, 1));
-        } else if (Input.GetKeyDown("down"))
+        } else if (Input.GetKey("down"))
         {
             prep_rotation(new Vector3(-90.0f, 0.0f, 0.0f), this.p_mx, new Vector3(0, 0, -1));
-        } else if (Input.GetKeyDown("right"))
+        } else if (Input.GetKey("right"))
         {
             prep_rotation(new Vector3(0.0f, 0.0f, -90.0f), this.p_x, new Vector3(1, 0, 0));
-        } else if (Input.GetKeyDown("left"))
+        } else if (Input.GetKey("left"))
         {
             prep_rotation(new Vector3(0.0f, 0.0f, 90.0f), this.p_mx, new Vector3(-1, 0, 0));
         }
