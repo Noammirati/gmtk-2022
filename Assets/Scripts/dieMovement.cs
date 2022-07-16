@@ -48,20 +48,48 @@ public class dieMovement : MonoBehaviour
     bool check_tile(Vector3 origin)
     {
         RaycastHit hit;
-        Debug.Log(origin);
         if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
         {
-            Debug.DrawRay(origin, Vector3.down * hit.distance, Color.yellow, 3);
-            Debug.Log("Did Hit " + hit.collider.gameObject.name);
+            // Debug.DrawRay(origin, Vector3.down * hit.distance, Color.yellow, 1);
+            // Debug.Log("Did Hit " + hit.collider.gameObject.name);
 
-            switch ((char) hit.collider.gameObject.name[0])
+            int ignored;
+            if (int.TryParse(hit.collider.gameObject.name, out ignored) && hit.collider.gameObject.name[0] != '0')
             {
-                case 'X':      
-                    Debug.Log("Can't move there");
-                    return false;
-                default:
-                    return true;
+                Debug.Log("Finish - " + hit.collider.gameObject.name[0]);
+            } else
+            {
+                switch ((char) hit.collider.gameObject.name[0])
+                {
+                    case 'X':      
+                        Debug.Log("Can't move there - Immuable");
+                        return false;
+                    case 'F':
+                        Debug.Log("Finish");
+                        break;
+                    case 'H':
+                        Debug.Log("Falling");
+                        break;
+                    case 'I':
+                        Debug.Log("Ice");
+                        break;
+                    case 'K':
+                        Debug.Log("Key");
+                        break;
+                    case 'L':
+                        Debug.Log("Lock");
+                        break;
+                    case 'P':
+                        Debug.Log("Spin");
+                        break;
+                    default:
+                        Debug.Log("Default");
+                        return true;
+                }
             }
+            
+            // #TODO REMOVE THIS ONCE ALL CASES HANDLED
+            return true;
 
         }
         Debug.Log("Can't move there");
