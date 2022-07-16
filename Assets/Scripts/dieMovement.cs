@@ -39,14 +39,15 @@ public class dieMovement : MonoBehaviour
     bool check_tile(Vector3 origin)
     {
         RaycastHit hit;
-        if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity))
+        Debug.Log(origin);
+        if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
         {
             Debug.DrawRay(origin, Vector3.down * hit.distance, Color.yellow, 3);
             Debug.Log("Did Hit " + hit.collider.gameObject.name);
 
-            switch (hit.collider.gameObject.name)
+            switch ((char) hit.collider.gameObject.name[0])
             {
-                case "X":      
+                case 'X':      
                     Debug.Log("Can't move there");
                     return false;
                 default:
