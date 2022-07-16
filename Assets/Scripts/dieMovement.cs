@@ -39,7 +39,7 @@ public class dieMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if(is_rotating)
         {
@@ -65,10 +65,10 @@ public class dieMovement : MonoBehaviour
 
         if (Input.GetKeyDown("up"))
         {
-            prep_rotation(new Vector3(90.0f, 0.0f, 0.0f), this.p_z, new Vector3(0, 0, 1));
+            prep_rotation(new Vector3(90.0f, 0.0f, 0.0f), this.p_x, new Vector3(0, 0, 1));
         } else if (Input.GetKeyDown("down"))
         {
-            prep_rotation(new Vector3(-90.0f, 0.0f, 0.0f), this.p_mz, new Vector3(0, 0, -1));
+            prep_rotation(new Vector3(-90.0f, 0.0f, 0.0f), this.p_mx, new Vector3(0, 0, -1));
         } else if (Input.GetKeyDown("right"))
         {
             prep_rotation(new Vector3(0.0f, 0.0f, -90.0f), this.p_x, new Vector3(1, 0, 0));
