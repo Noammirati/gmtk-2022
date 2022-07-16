@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class boardBuilder : MonoBehaviour
 {
+    public GameObject die;
+
+    [Space(10)]
 
     public GameObject finish_tile;
     public GameObject start_tile;
@@ -44,8 +47,13 @@ public class boardBuilder : MonoBehaviour
                 GameObject clone = Instantiate(this.tiles[level[i, j][0]], new Vector3(i, 0, j), Quaternion.identity);
                 clone.transform.parent = this.transform;
                 clone.name = level[i, j];
+
+                if(level[i, j][0] == 'S') {
+                    this.die.transform.position = new Vector3(i, this.die.transform.position.y, j);
+                }
             }
         }
+        this.transform.localPosition = new Vector3(0.5f + level.GetLength(0)/-2, 1, 0.5f + level.GetLength(1)/-2);
     }
 
     // Update is called once per frame
