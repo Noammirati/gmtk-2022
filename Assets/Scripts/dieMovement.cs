@@ -10,7 +10,9 @@ public class dieMovement : MonoBehaviour
     public float rotation_speed;
     
     private Transform transformPivot;
+    private Vector3 initial_position;
     private bool is_rotating = false;
+    private bool is_sliding = false;
     private int time_start_rotating;
     private float fractionOfJourney;
     private Vector3 rot_dir, mov_dir;
@@ -36,6 +38,13 @@ public class dieMovement : MonoBehaviour
         this.is_rotating = true;
     }
 
+    void slide(Vector3 direction)
+    {
+        this.mov_dir = direction;
+
+        this.is_sliding = true;
+    }
+
     bool check_tile(Vector3 origin)
     {
         RaycastHit hit;
@@ -59,6 +68,20 @@ public class dieMovement : MonoBehaviour
         return false;
     }
 
+    char tile_type(Vector3 origin)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
+        {
+            Debug.DrawRay(origin, Vector3.down * hit.distance, Color.yellow, 3);
+            Debug.Log("Did Hit " + hit.collider.gameObject.name);
+
+            return (char)hit.collider.gameObject.name[0];
+        }
+
+        return 'O';
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -67,7 +90,6 @@ public class dieMovement : MonoBehaviour
             fractionOfJourney = fractionOfJourney + (Time.deltaTime / rotation_speed);
 
             Vector3 rotation = Vector3.Lerp(Vector3.zero, new Vector3(rot_dir.x, rot_dir.y, rot_dir.z), fractionOfJourney);
-
 
             transformPivot.transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
             
@@ -79,6 +101,37 @@ public class dieMovement : MonoBehaviour
 
                 this.transform.Translate(this.mov_dir);
                 transformPivot.rotation = Quaternion.identity;
+
+                this.initial_position = this.transform.position;
+
+                if (check_tile(this.transform.position + this.mov_dir))
+                {
+                    if (tile_type(this.transform.position) == 'I') {
+                        is_sliding = true;
+                    }
+                }
+            }
+
+            return;
+        }
+
+        if (is_sliding)
+        {
+            Vector3 end = this.initial_position + this.mov_dir;
+            Debug.Log("Départ " + this.initial_position);
+            Debug.Log("Arrivée " + end);
+            fractionOfJourney = fractionOfJourney + (Time.deltaTime / rotation_speed);
+
+            Vector3 translation = Vector3.Lerp(this.initial_position, this.initial_position + this.mov_dir, fractionOfJourney);
+
+            transformPivot.transform.position = translation;
+
+            if (fractionOfJourney >= 1)
+            {
+                fractionOfJourney = 0;
+                is_sliding = false;
+
+                this.initial_position = this.transform.position;
             }
 
             return;

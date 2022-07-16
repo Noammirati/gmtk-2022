@@ -12,6 +12,7 @@ public class boardBuilder : MonoBehaviour
     public GameObject start_tile;
     public GameObject regular_tile;
     public GameObject wall_tile;
+    public GameObject icy_tile;
 
     private Dictionary<char, GameObject> tiles;
 
@@ -24,7 +25,8 @@ public class boardBuilder : MonoBehaviour
             {'F', finish_tile},
             {'S', start_tile},
             {'0', regular_tile},
-            {'X', wall_tile}
+            {'X', wall_tile},
+            {'I', icy_tile}
         };
 
         string level_str = System.IO.File.ReadAllText("Assets/Levels/test.lvl");
