@@ -36,6 +36,29 @@ public class dieMovement : MonoBehaviour
         this.is_rotating = true;
     }
 
+    bool check_tile(Vector3 origin)
+    {
+        RaycastHit hit;
+        Debug.Log(origin);
+        if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
+        {
+            Debug.DrawRay(origin, Vector3.down * hit.distance, Color.yellow, 3);
+            Debug.Log("Did Hit " + hit.collider.gameObject.name);
+
+            switch ((char) hit.collider.gameObject.name[0])
+            {
+                case 'X':      
+                    Debug.Log("Can't move there");
+                    return false;
+                default:
+                    return true;
+            }
+
+        }
+        Debug.Log("Can't move there");
+        return false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -63,24 +86,38 @@ public class dieMovement : MonoBehaviour
 
         if (Input.GetKey("up"))
         {
-            this.die2.gameObject.SetActive(false);
-            this.die.gameObject.SetActive(true);
-            prep_rotation(new Vector3(90.0f, 0.0f, 0.0f), this.p_x, new Vector3(0, 0, 1));
+            if (check_tile(this.transform.position + new Vector3(0, 0, 1)))
+            {
+                this.die2.gameObject.SetActive(false);
+                this.die.gameObject.SetActive(true);
+                prep_rotation(new Vector3(90.0f, 0.0f, 0.0f), this.p_x, new Vector3(0, 0, 1));
+            }
+            
         } else if (Input.GetKey("down"))
-        {
-            this.die2.gameObject.SetActive(true);
-            this.die.gameObject.SetActive(false);
-            prep_rotation(new Vector3(-90.0f, 0.0f, 0.0f), this.p_mx, new Vector3(0, 0, -1));
+        {  
+            if (check_tile(this.transform.position + new Vector3(0, 0, -1)))
+            {
+                this.die2.gameObject.SetActive(true);
+                this.die.gameObject.SetActive(false);
+                prep_rotation(new Vector3(-90.0f, 0.0f, 0.0f), this.p_mx, new Vector3(0, 0, -1));
+            }
         } else if (Input.GetKey("right"))
         {
-            this.die2.gameObject.SetActive(false);
-            this.die.gameObject.SetActive(true);
-            prep_rotation(new Vector3(0.0f, 0.0f, -90.0f), this.p_x, new Vector3(1, 0, 0));
+            if (check_tile(this.transform.position + new Vector3(1, 0, 0)))
+            {
+                this.die2.gameObject.SetActive(false);
+                this.die.gameObject.SetActive(true);
+                prep_rotation(new Vector3(0.0f, 0.0f, -90.0f), this.p_x, new Vector3(1, 0, 0));
+            }
         } else if (Input.GetKey("left"))
         {
-            this.die2.gameObject.SetActive(true);
-            this.die.gameObject.SetActive(false);
-            prep_rotation(new Vector3(0.0f, 0.0f, 90.0f), this.p_mx, new Vector3(-1, 0, 0));
+            
+            if (check_tile(this.transform.position + new Vector3(-1, 0, 0)))
+            {
+                this.die2.gameObject.SetActive(true);
+                this.die.gameObject.SetActive(false);
+                prep_rotation(new Vector3(0.0f, 0.0f, 90.0f), this.p_mx, new Vector3(-1, 0, 0));
+            }
         }
 
         
