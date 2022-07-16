@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     {  
         animator.SetBool("isOpen", true);
         nameText.GetComponent<TMP_Text>().text = dialogue.name;
+        Debug.Log("DEBUT - " + dialogue.name);
 
         sentences.Clear();
         foreach(string s in dialogue.sentences)
@@ -44,6 +45,7 @@ public class DialogueManager : MonoBehaviour
         string current = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(current));
+        Debug.Log(current);
     }
 
     IEnumerator TypeSentence (string sentence)
