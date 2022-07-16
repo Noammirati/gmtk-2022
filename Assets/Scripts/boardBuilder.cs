@@ -41,7 +41,9 @@ public class boardBuilder : MonoBehaviour
     {
         for(int i = 0; i < level.GetLength(0); i++){
             for(int j = 0; j < level.GetLength(1); j++) {
-                Instantiate(this.tiles[level[i, j][0]], new Vector3(i, 0, j), Quaternion.identity);
+                GameObject clone = Instantiate(this.tiles[level[i, j][0]], new Vector3(i, 0, j), Quaternion.identity);
+                clone.transform.parent = this.transform;
+                clone.name = level[i, j];
             }
         }
     }
