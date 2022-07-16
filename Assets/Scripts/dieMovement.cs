@@ -146,13 +146,14 @@ public class dieMovement : MonoBehaviour
         if (is_sliding)
         {
             Vector3 end = this.initial_position + this.mov_dir;
-            Debug.Log("Départ " + this.initial_position);
-            Debug.Log("Arrivée " + end);
+            Debug.Log("Dï¿½part " + this.initial_position);
+            Debug.Log("Arrivï¿½e " + end);
+
             fractionOfJourney = fractionOfJourney + (Time.deltaTime / rotation_speed);
 
             Vector3 translation = Vector3.Lerp(this.initial_position, this.initial_position + this.mov_dir, fractionOfJourney);
 
-            transformPivot.transform.position = translation;
+            this.transform.position = translation;
 
             if (fractionOfJourney >= 1)
             {
@@ -160,6 +161,13 @@ public class dieMovement : MonoBehaviour
                 is_sliding = false;
 
                 this.initial_position = this.transform.position;
+
+                if (check_tile(this.transform.position + this.mov_dir))
+                {
+                    if (tile_type(this.transform.position) == 'I') {
+                        is_sliding = true;
+                    }
+                }
             }
 
             return;
