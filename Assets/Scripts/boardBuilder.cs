@@ -41,10 +41,8 @@ public class boardBuilder : MonoBehaviour
     {
         for(int i = 0; i < level.GetLength(0); i++){
             for(int j = 0; j < level.GetLength(1); j++) {
-                Debug.Log("____" + level[i, j][0] + "____");
                 Instantiate(this.tiles[level[i, j][0]], new Vector3(i, 0, j), Quaternion.identity);
             }
-            Debug.Log("new_row");
         }
     }
 

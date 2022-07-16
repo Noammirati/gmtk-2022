@@ -5,7 +5,7 @@ using UnityEngine;
 public class dieMovement : MonoBehaviour
 {
 
-    Transform p_mx, p_x, die;
+    Transform p_mx, p_x, die, die2;
 
     public float rotation_speed;
     
@@ -22,13 +22,13 @@ public class dieMovement : MonoBehaviour
         this.p_x = this.transform.Find("pivot_X");
         this.p_mx = this.transform.Find("pivot_mX");
         this.die = this.transform.Find("Die");
+
+        die2 = Instantiate(die, die.transform.position, Quaternion.identity).transform;
+        die.transform.parent = this.p_x;
+        die2.transform.parent = this.p_mx;
     }
 
     void prep_rotation(Vector3 rot_dir, Transform transformPivot, Vector3 mov_dir) {
-        this.die.transform.parent = this.transform;
-        this.die.transform.localPosition = Vector3.zero;
-        this.die.transform.parent = this.transformPivot;
-
         this.rot_dir  = rot_dir;
         this.transformPivot = transformPivot;
         this.mov_dir = mov_dir;
@@ -63,15 +63,23 @@ public class dieMovement : MonoBehaviour
 
         if (Input.GetKey("up"))
         {
+            this.die2.gameObject.SetActive(false);
+            this.die.gameObject.SetActive(true);
             prep_rotation(new Vector3(90.0f, 0.0f, 0.0f), this.p_x, new Vector3(0, 0, 1));
         } else if (Input.GetKey("down"))
         {
+            this.die2.gameObject.SetActive(true);
+            this.die.gameObject.SetActive(false);
             prep_rotation(new Vector3(-90.0f, 0.0f, 0.0f), this.p_mx, new Vector3(0, 0, -1));
         } else if (Input.GetKey("right"))
         {
+            this.die2.gameObject.SetActive(false);
+            this.die.gameObject.SetActive(true);
             prep_rotation(new Vector3(0.0f, 0.0f, -90.0f), this.p_x, new Vector3(1, 0, 0));
         } else if (Input.GetKey("left"))
         {
+            this.die2.gameObject.SetActive(true);
+            this.die.gameObject.SetActive(false);
             prep_rotation(new Vector3(0.0f, 0.0f, 90.0f), this.p_mx, new Vector3(-1, 0, 0));
         }
 
