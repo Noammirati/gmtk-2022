@@ -43,8 +43,6 @@ public class dieMovement : MonoBehaviour
         die2.name = "Die";
         die.transform.parent = this.p_x;
         die2.transform.parent = this.p_mx;
-
-
     }
 
     void prep_rotation(Vector3 rot_dir, Transform transformPivot, Vector3 mov_dir) {
@@ -155,12 +153,60 @@ public class dieMovement : MonoBehaviour
                         }
 
                     default:
-                        return true;
+                        return hasaccess(origin);
                 }
             }
         }
         Debug.Log("Can't move there");
         return false;
+    }
+
+    bool hasaccess(Vector3 origin)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Access")))
+        {
+            int ignored;
+            if (int.TryParse(hit.collider.gameObject.name, out ignored) && hit.collider.gameObject.name[0] != '0')
+            {
+                return true;
+            } else
+            {
+                float[] distances = new float[6];
+
+                char access_char = (char) hit.collider.gameObject.name[0];
+                int access_int;
+                int.TryParse(""+access_char, out access_int);
+
+                //for every child of die, find the closest to origin
+                foreach (Transform child in die.transform)
+                {
+                    //array of int of size 6, each int is the distance to the child of die
+                    int index;
+                    int.TryParse(""+child.name[0], out index);
+                    distances[index-1] = Vector3.Distance(child.position, origin);
+                }
+
+                //find the index of the lowest value in the array
+                int min_index = 0;
+                for (int i = 0; i < distances.Length; i++)
+                {
+                    if (distances[i] < distances[min_index])
+                    {
+                        min_index = i;
+                    }
+                }
+
+                Debug.Log("Min index: " + min_index);
+                Debug.Log("access_char: " + access_char);
+                Debug.Log("access_int: " + access_int);
+                Debug.Log(min_index+1 == access_int);
+
+                return (min_index+1 == access_int);
+            }
+        }
+
+        return true;
     }
 
     char tile_type(Vector3 origin)
