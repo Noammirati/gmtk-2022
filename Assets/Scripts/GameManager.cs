@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private int current_level = 0;
     private static string[] levels = new string[]{
-        "Assets/Levels/intro.lvl",
+        "Assets/Levels/test.lvl",
         "Assets/Levels/level1.lvl",
         "Assets/Levels/level2.lvl",
         "Assets/Levels/level3.lvl",
@@ -26,6 +26,13 @@ public class GameManager : MonoBehaviour
         "Assets/Levels/level5.lvl",
         "Assets/Levels/level6.lvl",
         "Assets/Levels/level7.lvl"
+    };
+
+    private static string[] access = new string[]{
+        "Assets/Levels/test.access",
+        "Assets/Levels/level1.access",
+        "Assets/Levels/level2.access",
+        "Assets/Levels/level3.access"
     };
 
     private static Vector3[] pos = new Vector3[]{
@@ -49,6 +56,7 @@ public class GameManager : MonoBehaviour
         }
         dialogues["Start"].TriggerDialogue();
         bb.loadLevel(levels[current_level], pos[current_level]);
+        bb.loadAccess(access[current_level], pos[current_level]);
 
         level_complete = GameObject.Find("levelComplete");
         level_complete_source = level_complete.GetComponent<AudioSource>();
@@ -65,6 +73,7 @@ public class GameManager : MonoBehaviour
         if (current_level < levels.Length)
         {   
             bb.loadLevel(levels[current_level], pos[current_level]);
+            bb.loadAccess(access[current_level], pos[current_level]);
         } else 
         {
             dialogues["End"].TriggerDialogue(() => SceneManager.LoadScene("EndScene"));
