@@ -257,7 +257,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105962213}
   m_CullTransparentMesh: 1
---- !u!1 &210180911
+--- !u!1 &182000157
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,53 +265,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 210180912}
-  - component: {fileID: 210180913}
+  - component: {fileID: 182000158}
   m_Layer: 0
-  m_Name: End
+  m_Name: Dialogues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &210180912
+--- !u!4 &182000158
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210180911}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 182000157}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -220.19998, y: 9.933334, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1282520762}
-  m_RootOrder: 4
+  m_Children:
+  - {fileID: 929682261}
+  - {fileID: 387404493}
+  - {fileID: 1901756550}
+  - {fileID: 1251930727}
+  - {fileID: 1064560040}
+  m_Father: {fileID: 946540313}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &210180913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210180911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - talker: 80
-      sentence: Wow
-      pic: 6
-    - talker: 80
-      sentence: You managed to complete all the levels. I'm pleasantly surprised
-      pic: 4
-    - talker: 72
-      sentence: Let's go steal some treats!
-      pic: 4
 --- !u!1 &224186368
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +373,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224186368}
   m_CullTransparentMesh: 1
+--- !u!1 &387404492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 387404493}
+  - component: {fileID: 387404494}
+  m_Layer: 0
+  m_Name: Reussi1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &387404493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387404492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 182000158}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387404494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387404492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - talker: 80
+      sentence: "Wow, you\u2019re a lot better at this then i expected\r\n"
+      pic: 7
 --- !u!1 &454571539
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,55 +719,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba6faa13a750ef478416025e120fb5a, type: 3}
---- !u!1 &652569777
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 652569778}
-  - component: {fileID: 652569779}
-  m_Layer: 0
-  m_Name: Echec2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &652569778
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652569777}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1282520762}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &652569779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652569777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - talker: 80
-      sentence: "You\u2019re TERRIBLE human\r\n"
-      pic: 3
 --- !u!1 &660966482
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,59 +749,9 @@ Transform:
   m_Children:
   - {fileID: 749009765}
   - {fileID: 946540313}
-  - {fileID: 1282520762}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &728355397
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 728355398}
-  - component: {fileID: 728355399}
-  m_Layer: 0
-  m_Name: Echec1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &728355398
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728355397}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1282520762}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &728355399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728355397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - talker: 80
-      sentence: Well that was disa-pug-ting
-      pic: 3
 --- !u!1 &749009764
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +799,6 @@ MonoBehaviour:
   dialoguePugText: {fileID: 2078142667}
   dialogueHumanText: {fileID: 1411721902}
   nextButton: {fileID: 105962213}
-  animator: {fileID: 0}
 --- !u!1 &797430768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +977,76 @@ Transform:
   m_Father: {fileID: 1049133818}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &878037653
+--- !u!1001 &921246866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 669523148004552892, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_Name
+      value: levelComplete
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637575544401060483, guid: 621410f7bae66a54b819c84f6f3fe3bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 621410f7bae66a54b819c84f6f3fe3bb, type: 3}
+--- !u!1 &929682260
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1055,46 +1054,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 878037654}
-  - component: {fileID: 878037658}
-  - component: {fileID: 878037657}
-  - component: {fileID: 878037656}
-  - component: {fileID: 878037655}
-  m_Layer: 5
-  m_Name: TestButton
+  - component: {fileID: 929682261}
+  - component: {fileID: 929682262}
+  m_Layer: 0
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &878037654
-RectTransform:
+--- !u!4 &929682261
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878037653}
+  m_GameObject: {fileID: 929682260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1630620029}
-  m_Father: {fileID: 946540313}
-  m_RootOrder: 3
+  m_Children: []
+  m_Father: {fileID: 182000158}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &878037655
+--- !u!114 &929682262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878037653}
+  m_GameObject: {fileID: 929682260}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
@@ -1102,109 +1092,112 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
+    - talker: 80
+      sentence: "Pug-tastic human, you\u2019re finally awake! "
+      pic: 6
     - talker: 72
-      sentence: serftgyui
-      pic: 0
+      sentence: "I\u2026 I .. I don\u2019t understand..  what's going on?"
+      pic: 6
     - talker: 80
-      sentence: sdertyuio
-      pic: 0
+      sentence: 'QUIET! '
+      pic: 1
     - talker: 80
-      sentence: sdertyuikggcndvsc
-      pic: 0
---- !u!114 &878037656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878037653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 878037657}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 878037655}
-        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
-        m_MethodName: TriggerDialogue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &878037657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878037653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &878037658
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878037653}
-  m_CullTransparentMesh: 1
+      sentence: "You know why you\u2019re here!"
+      pic: 8
+    - talker: 72
+      sentence: "\u2026"
+      pic: 8
+    - talker: 80
+      sentence: 'YOU HAVEN''T FED ME IN DAYS
+
+'
+      pic: 1
+    - talker: 72
+      sentence: 'Oh.. that..
+
+'
+      pic: 8
+    - talker: 72
+      sentence: "I\u2019m sorry sprinkles, I\u2019ve been really busy with work and
+        i completely forgot to go to the petshop"
+      pic: 8
+    - talker: 80
+      sentence: GRRRRR
+      pic: 5
+    - talker: 72
+      sentence: You could have reminded me yesterday when w-
+      pic: 5
+    - talker: 80
+      sentence: "Don\u2019t you DARE pug the blame on me! \r"
+      pic: 1
+    - talker: 80
+      sentence: You told me you'd never forget me ...
+      pic: 6
+    - talker: 72
+      sentence: ...
+      pic: 6
+    - talker: 72
+      sentence: 'I''m very sorry sprinkles '
+      pic: 4
+    - talker: 80
+      sentence: ...
+      pic: 4
+    - talker: 72
+      sentence: I can go buy some right now if you wan-
+      pic: 2
+    - talker: 80
+      sentence: QUIET
+      pic: 1
+    - talker: 80
+      sentence: You've broken my trust
+      pic: 8
+    - talker: 80
+      sentence: So now you must gain it back and help me steal ALL THE TREATS from
+        the petshop
+      pic: 5
+    - talker: 80
+      sentence: I need you and your opposable thumbs
+      pic: 6
+    - talker: 72
+      sentence: "\u2026\r"
+      pic: 6
+    - talker: 80
+      sentence: It's NON NEGOTIABLE
+      pic: 5
+    - talker: 72
+      sentence: ...
+      pic: 5
+    - talker: 72
+      sentence: Ok sprinkles, I'll help. Shall we get going?
+      pic: 6
+    - talker: 80
+      sentence: HAHAHAHAHAHAHA
+      pic: 3
+    - talker: 80
+      sentence: Funny
+      pic: 3
+    - talker: 80
+      sentence: No ... first we need to test your skills
+      pic: 8
+    - talker: 72
+      sentence: How?
+      pic: 8
+    - talker: 80
+      sentence: I've designed an incredible petshop heist simulation
+      pic: 4
+    - talker: 72
+      sentence: I don't see the connection between the heist and this board game
+        in front of me ...
+      pic: 4
+    - talker: 80
+      sentence: Don't question my BRILLIANT plan!
+      pic: 1
+    - talker: 72
+      sentence: ...
+      pic: 6
+    - talker: 80
+      sentence: Let's test your skills human
+      pic: 6
 --- !u!1 &933160572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,176 +1295,6 @@ Transform:
   m_Father: {fileID: 1659697449}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 14.312, z: 0}
---- !u!1 &945744932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 945744933}
-  - component: {fileID: 945744934}
-  m_Layer: 0
-  m_Name: Start
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &945744933
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945744932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1282520762}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &945744934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945744932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - talker: 80
-      sentence: "Pug-tastic human, you\u2019re finally awake! "
-      pic: 6
-    - talker: 72
-      sentence: "I\u2026 I .. I don\u2019t understand..  what's going on?"
-      pic: 6
-    - talker: 80
-      sentence: 'QUIET! '
-      pic: 1
-    - talker: 80
-      sentence: "You know why you\u2019re here!"
-      pic: 8
-    - talker: 72
-      sentence: "\u2026"
-      pic: 8
-    - talker: 80
-      sentence: 'YOU HAVEN''T FED ME IN DAYS
-
-'
-      pic: 1
-    - talker: 72
-      sentence: 'Oh.. that..
-
-'
-      pic: 8
-    - talker: 72
-      sentence: "I\u2019m sorry sprinkles, I\u2019ve been very busy with work and
-        i completely forgot to do out and buy more\u2026 \r\n"
-      pic: 8
-    - talker: 80
-      sentence: 'GRRRRRR
-
-'
-      pic: 5
-    - talker: 72
-      sentence: 'You could have reminded me
-
-
-'
-      pic: 5
-    - talker: 80
-      sentence: "Don\u2019t you DARE pug the blame on me! \r\n\n"
-      pic: 1
-    - talker: 80
-      sentence: 'You told me you''d never forget ...
-
-
-'
-      pic: 6
-    - talker: 72
-      sentence: '...
-
-
-'
-      pic: 6
-    - talker: 72
-      sentence: "I'm very sorry sprinkles \n"
-      pic: 4
-    - talker: 80
-      sentence: '...
-
-'
-      pic: 4
-    - talker: 72
-      sentence: You CAN'T!
-      pic: 1
-    - talker: 80
-      sentence: You've broken my trust
-      pic: 8
-    - talker: 80
-      sentence: So now you must gain it back and help me steal ALL THE TREATS
-      pic: 5
-    - talker: 72
-      sentence: I can pay for the treats if you wan-
-      pic: 2
-    - talker: 80
-      sentence: QUIET
-      pic: 1
-    - talker: 80
-      sentence: You need to earn my trust again
-      pic: 8
-    - talker: 80
-      sentence: So I've planned a petshop heist and I need you and your opposable
-        thumbs
-      pic: 6
-    - talker: 72
-      sentence: "\u2026\r\n"
-      pic: 6
-    - talker: 80
-      sentence: It's NON NEGOTIABLE
-      pic: 5
-    - talker: 72
-      sentence: ...
-      pic: 5
-    - talker: 72
-      sentence: Ok sprinkles, I'll help. Shall we get going?
-      pic: 6
-    - talker: 80
-      sentence: HAHAHAHAHAHAHA
-      pic: 3
-    - talker: 80
-      sentence: Funny
-      pic: 3
-    - talker: 80
-      sentence: No ... first we need to test your skills
-      pic: 8
-    - talker: 72
-      sentence: How?
-      pic: 8
-    - talker: 80
-      sentence: I've designed an incredible petshop heist simulation
-      pic: 4
-    - talker: 72
-      sentence: I don't see the connection between the heist and this ...
-      pic: 4
-    - talker: 80
-      sentence: Don't question my BRILLIANT plan!
-      pic: 1
-    - talker: 72
-      sentence: ...
-      pic: 6
-    - talker: 80
-      sentence: Let's test your skills human
-      pic: 6
 --- !u!1 &946540312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1329,7 @@ RectTransform:
   - {fileID: 955018515}
   - {fileID: 1899700914}
   - {fileID: 105962214}
-  - {fileID: 878037654}
+  - {fileID: 182000158}
   m_Father: {fileID: 660966483}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1709,13 +1532,18 @@ MonoBehaviour:
     type: 3}
   wall_tile: {fileID: 8782850489472362729, guid: 1ff6b900896ae62408d5890f788a6706,
     type: 3}
-  hole_tile: {fileID: 0}
+  hole_tile: {fileID: 8782850489472362729, guid: 1ff6b900896ae62408d5890f788a6706,
+    type: 3}
   icy_tile: {fileID: 8399899528612589207, guid: 66dbfd436e4813040a63350f1392d88d,
     type: 3}
-  cracked_tile: {fileID: 0}
-  key_tile: {fileID: 0}
-  lock_tile: {fileID: 0}
-  rotate_tile: {fileID: 0}
+  cracked_tile: {fileID: 8399899528612589207, guid: c134ef00413773c4a8f406266eba33f4,
+    type: 3}
+  key_tile: {fileID: 8782850489472362729, guid: 026ef7ac4c4aac542a957992008a77e9,
+    type: 3}
+  lock_tile: {fileID: 8782850489472362729, guid: 626c12c3d5e83b44d968df9cb433e65d,
+    type: 3}
+  rotate_tile: {fileID: 8782850489472362729, guid: 32bf20821e997fb4db4bbe205790856b,
+    type: 3}
 --- !u!1 &1049133817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1593,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation_speed: 0.5
   gm_object: {fileID: 1767663349}
-  board_object: {fileID: 0}
+  board_object: {fileID: 1009689498}
+--- !u!1 &1064560039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1064560040}
+  - component: {fileID: 1064560041}
+  m_Layer: 0
+  m_Name: End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1064560040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064560039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 182000158}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1064560041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064560039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - talker: 80
+      sentence: Wow
+      pic: 6
+    - talker: 80
+      sentence: You managed to complete all the levels. I'm pleasantly surprised
+      pic: 4
+    - talker: 80
+      sentence: I think you're ready
+      pic: 4
+    - talker: 72
+      sentence: Let's go steal some treats!
+      pic: 8
 --- !u!1 &1075611565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,6 +1996,75 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &1183509915
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 351765846268060204, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_Name
+      value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143849958367003308, guid: 9c963fc518e49564488e6d29c44daf76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c963fc518e49564488e6d29c44daf76, type: 3}
 --- !u!1 &1186070386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,7 +2096,7 @@ Transform:
   m_Father: {fileID: 1049133818}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1230765053
+--- !u!1 &1251930726
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2149,37 +2104,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1230765054}
-  - component: {fileID: 1230765055}
+  - component: {fileID: 1251930727}
+  - component: {fileID: 1251930728}
   m_Layer: 0
-  m_Name: Reussi1
+  m_Name: Echec2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1230765054
+--- !u!4 &1251930727
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230765053}
+  m_GameObject: {fileID: 1251930726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1282520762}
+  m_Father: {fileID: 182000158}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1230765055
+--- !u!114 &1251930728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230765053}
+  m_GameObject: {fileID: 1251930726}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
@@ -2188,44 +2143,8 @@ MonoBehaviour:
   dialogue:
     sentences:
     - talker: 80
-      sentence: "Wow, you\u2019re a lot better at this then i expected\r\n"
-      pic: 7
---- !u!1 &1282520761
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1282520762}
-  m_Layer: 0
-  m_Name: Dialogues
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1282520762
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282520761}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 945744933}
-  - {fileID: 728355398}
-  - {fileID: 652569778}
-  - {fileID: 1230765054}
-  - {fileID: 210180912}
-  m_Father: {fileID: 660966483}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+      sentence: "You\u2019re TERRIBLE human\r\n"
+      pic: 3
 --- !u!1 &1287298276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,86 +2382,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411721900}
-  m_CullTransparentMesh: 1
---- !u!1 &1630620028
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1630620029}
-  - component: {fileID: 1630620031}
-  - component: {fileID: 1630620030}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1630620029
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630620028}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 878037654}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1630620030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630620028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Clic me to start convo
---- !u!222 &1630620031
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630620028}
   m_CullTransparentMesh: 1
 --- !u!1 &1659697448
 GameObject:
@@ -2801,6 +2640,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899700913}
   m_CullTransparentMesh: 1
+--- !u!1 &1901756549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901756550}
+  - component: {fileID: 1901756551}
+  m_Layer: 0
+  m_Name: Echec1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1901756550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901756549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 182000158}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901756551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901756549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - talker: 80
+      sentence: Well that was disa-pug-ting
+      pic: 3
 --- !u!1 &1959394393
 GameObject:
   m_ObjectHideFlags: 0
