@@ -22,10 +22,7 @@ public class GameManager : MonoBehaviour
         "Assets/Levels/level1.lvl",
         "Assets/Levels/level2.lvl",
         "Assets/Levels/level3.lvl",
-        "Assets/Levels/level4.lvl",
-        "Assets/Levels/level5.lvl",
-        "Assets/Levels/level6.lvl",
-        "Assets/Levels/level7.lvl"
+        "Assets/Levels/level4.lvl"
     };
 
     private static string[] access = new string[]{
@@ -33,10 +30,7 @@ public class GameManager : MonoBehaviour
         "Assets/Levels/level1.access",
         "Assets/Levels/level2.access",
         "Assets/Levels/level3.access",
-        "Assets/Levels/level4.access",
-        "Assets/Levels/level5.access",
-        "Assets/Levels/level6.access",
-        "Assets/Levels/level7.access"
+        "Assets/Levels/level4.access"
     };
 
     private static Vector3[] pos = new Vector3[]{
@@ -44,10 +38,7 @@ public class GameManager : MonoBehaviour
         new Vector3(-1.5f, 1f, -1.5f),
         new Vector3(-2.68f, 1f, -3.26f),
         new Vector3(-4.32f, 1f, -4.85f),
-        new Vector3(-2.83f, 1f, -1.58f),
-        new Vector3(-2.83f, 1f, -1.58f),
-        new Vector3(-2.83f, 1f, -1.58f),
-        new Vector3(-2.83f, 1f, -1.58f)
+        new Vector3(-6.5f, 1f, -6.03f)
     };
 
     // Start is called before the first frame update
