@@ -43,6 +43,8 @@ public class dieMovement : MonoBehaviour
         die2.name = "Die";
         die.transform.parent = this.p_x;
         die2.transform.parent = this.p_mx;
+
+
     }
 
     void prep_rotation(Vector3 rot_dir, Transform transformPivot, Vector3 mov_dir) {
