@@ -9,6 +9,7 @@ public class boardBuilder : MonoBehaviour
     [Space(10)]
 
     public GameObject finish_tile;
+    public GameObject finish_1_tile;
     public GameObject start_tile;
     public GameObject regular_tile;
     public GameObject wall_tile;
@@ -26,24 +27,27 @@ public class boardBuilder : MonoBehaviour
             {'S', start_tile},
             {'0', regular_tile},
             {'X', wall_tile},
-            {'I', icy_tile}
+            {'I', icy_tile},
+            {'1', finish_1_tile}
         };
+    }
 
-        string level_str = System.IO.File.ReadAllText("Assets/Levels/test.lvl");
+    public void loadLevel(string path)
+    {
+        string level_str = System.IO.File.ReadAllText(path);
         string[] rows = level_str.Split('\n');
-        int dim = rows[0].Split(' ').Length;
+        
+        int width = rows[0].Split(' ').Length;
+        int height = rows.Length;
 
-        level = new string[dim,dim];
-        for(int i = 0; i < dim; i++) {
+        level = new string[height,width];
+        for(int i = 0; i < height; i++) {
             string[] row = rows[i].Split(' ');
-            for(int j = 0; j < dim; j++) {
+            for(int j = 0; j < width; j++) {
                 level[i,j] = row[j];
             }
         }
-    }
-
-    void Start()
-    {
+        
         for(int i = 0; i < level.GetLength(0); i++){
             for(int j = 0; j < level.GetLength(1); j++) {
                 GameObject clone = Instantiate(this.tiles[level[i, j][0]], new Vector3(i, 0, j), Quaternion.identity);
@@ -56,11 +60,20 @@ public class boardBuilder : MonoBehaviour
             }
         }
         this.transform.localPosition = new Vector3(0.5f + level.GetLength(0)/-2, 1, 0.5f + level.GetLength(1)/-2);
+    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void clearBoard() {
+        foreach (Transform child in transform) {
+            if(child.gameObject.layer == 3) {
+                Object.Destroy(child.gameObject);
+            }
+        }
     }
+
+    void Start()
+    {
+        loadLevel("Assets/Levels/intro.lvl");
+    }
+
 }
