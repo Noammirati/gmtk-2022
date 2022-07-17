@@ -66,10 +66,7 @@ public class GameManager : MonoBehaviour
             bb.loadLevel(levels[current_level], pos[current_level]);
         } else 
         {
-            dialogues["End"].TriggerDialogue(() => {
-                yield return new WaitForSeconds(1);
-                SceneManager.LoadScene("EndScene");
-            });
+            dialogues["End"].TriggerDialogue(() => SceneManager.LoadScene("EndScene"));
         }
     }
 
