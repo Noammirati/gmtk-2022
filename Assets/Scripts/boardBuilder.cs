@@ -37,7 +37,8 @@ public class boardBuilder : MonoBehaviour
             {'C', cracked_tile},
             {'K', key_tile},
             {'L', lock_tile},
-            {'R', rotate_tile}
+            {'R', rotate_tile},
+            {'H', hole_tile}
         };
     }
 
