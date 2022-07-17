@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private int current_level = 0;
     private static string[] levels = new string[]{
-        "Assets/Levels/test.lvl",
+        "Assets/Levels/intro.lvl",
         "Assets/Levels/level1.lvl",
         "Assets/Levels/level2.lvl",
         "Assets/Levels/level3.lvl",
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     };
 
     private static string[] access = new string[]{
-        "Assets/Levels/test.access",
+        "Assets/Levels/intro.access",
         "Assets/Levels/level1.access",
         "Assets/Levels/level2.access",
         "Assets/Levels/level3.access",
