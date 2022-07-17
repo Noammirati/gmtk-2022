@@ -189,6 +189,10 @@ public class dieMovement : MonoBehaviour
 
             return;
         }
+        if (!gm.canPlay())
+        {
+            return;
+        }
 
         if (Input.GetKey("up"))
         {

@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject board;
-
     private boardBuilder bb;
+    private Dictionary <string, DialogueTrigger> dialogues;
+    private DialogueManager dm;
+    private bool isDialogueActive;
 
     private int current_level = 0;
     private static string[] levels = new string[]{
@@ -28,14 +30,38 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         bb = board.GetComponent<boardBuilder>();
+
+        dm = FindObjectOfType<DialogueManager>();
+        var dtObj = FindObjectsOfType(typeof(DialogueTrigger));
+        dialogues = new Dictionary <string, DialogueTrigger>();
+        foreach (var o in dtObj)
+        {
+            dialogues.Add(o.name, (DialogueTrigger) o);
+        }
+        dialogues["bebz"].TriggerDialogue();
         bb.loadLevel(levels[current_level], pos[current_level]);
     }
 
-    // Update is called once per frame
     public void NextBoard()
     {
+        dialogues["bebz"].TriggerDialogue();
         bb.clearBoard();
         current_level++;
         bb.loadLevel(levels[current_level], pos[current_level]);
+    }
+
+    public bool canPlay()
+    {
+        return !isDialogueActive;
+    }
+
+    public void setDialogueActive(bool isActive)
+    {
+        isDialogueActive = isActive;
+    }
+
+    public void LevelFinished()
+    {
+        
     }
 }

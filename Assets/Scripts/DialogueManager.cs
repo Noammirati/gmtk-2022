@@ -11,14 +11,14 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueHumanText;
     public GameObject nextButton;
 
-    public Animator animator;
-
     private Queue<Sentence> sentences;
+    private GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<Sentence>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     public void StartDialogue (Dialogue dialogue)
@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(s);
         }
 
+        gm.setDialogueActive(true);
         DisplayNextSentence();
     }
 
@@ -66,10 +67,9 @@ public class DialogueManager : MonoBehaviour
         nextButton.SetActive(true);
     }
 
-
-
     void EndDialogue()
     {
+        gm.setDialogueActive(false);
         clearTexts();
         Debug.Log("End of Convo");
     }
