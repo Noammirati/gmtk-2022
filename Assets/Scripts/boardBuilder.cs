@@ -13,7 +13,12 @@ public class boardBuilder : MonoBehaviour
     public GameObject start_tile;
     public GameObject regular_tile;
     public GameObject wall_tile;
+    public GameObject hole_tile;
     public GameObject icy_tile;
+    public GameObject cracked_tile;
+    public GameObject key_tile;
+    public GameObject lock_tile;
+    public GameObject rotate_tile;
 
     private Dictionary<char, GameObject> tiles;
 
@@ -28,7 +33,11 @@ public class boardBuilder : MonoBehaviour
             {'0', regular_tile},
             {'X', wall_tile},
             {'I', icy_tile},
-            {'1', finish_1_tile}
+            {'1', finish_1_tile},
+            {'C', cracked_tile},
+            {'K', key_tile},
+            {'L', lock_tile},
+            {'R', rotate_tile}
         };
     }
 
