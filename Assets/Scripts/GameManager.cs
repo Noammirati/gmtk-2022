@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject board;
+    public GameObject level_complete;
+
+    AudioSource level_complete_source;
 
     private boardBuilder bb;
 
@@ -29,12 +32,16 @@ public class GameManager : MonoBehaviour
     {
         bb = board.GetComponent<boardBuilder>();
         bb.loadLevel(levels[current_level], pos[current_level]);
+
+        level_complete = GameObject.Find("levelComplete");
+        level_complete_source = level_complete.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     public void NextBoard()
     {
         bb.clearBoard();
+        level_complete_source.Play();
         current_level++;
         bb.loadLevel(levels[current_level], pos[current_level]);
     }
