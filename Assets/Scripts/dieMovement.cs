@@ -8,8 +8,8 @@ public class dieMovement : MonoBehaviour
     Transform p_mx, p_x, die, die2;
 
     public float rotation_speed;
-    [Space(10)]
     public GameObject gm_object;
+    public GameObject board_object;
     [Space(10)]
 
     private Transform transformPivot;
@@ -24,11 +24,16 @@ public class dieMovement : MonoBehaviour
 
     private GameManager gm;
 
+    private boardBuilder board;
+    private bool haskey;
+
 
     // Start is called before the first frame update
     void Awake()
     {
         this.gm = gm_object.GetComponent<GameManager>();
+        this.board = board_object.GetComponent<boardBuilder>();
+        this.haskey = false;
 
         this.p_x = this.transform.Find("pivot_X");
         this.p_mx = this.transform.Find("pivot_mX");
@@ -38,6 +43,8 @@ public class dieMovement : MonoBehaviour
         die2.name = "Die";
         die.transform.parent = this.p_x;
         die2.transform.parent = this.p_mx;
+
+
     }
 
     void prep_rotation(Vector3 rot_dir, Transform transformPivot, Vector3 mov_dir) {
@@ -70,31 +77,46 @@ public class dieMovement : MonoBehaviour
                 {
                     case 'X':      
                         break;
+                    
                     case 'F':
-                        Debug.Log("Finish");
                         gm.NextBoard();
                         break;
+                    
                     case 'H':
-                        Debug.Log("Falling");
                         break;
+                    
                     case 'I':
                         if (can_move(this.transform.position + this.mov_dir))
                         {
-                            if (tile_type(this.transform.position) == 'I') {
-                                this.initial_position = this.transform.position;
-                                is_sliding = true;
-                            }
+                            this.initial_position = this.transform.position;
+                            is_sliding = true;
                         }
                         break;
+
+                    case 'C':
+                        Instantiate(board.hole_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                        Destroy(hit.collider.gameObject);
+                        if (can_move(this.transform.position + this.mov_dir))
+                        {
+                            this.initial_position = this.transform.position;
+                            is_sliding = true;
+                        }
+                        break;
+
                     case 'K':
-                        Debug.Log("Key");
+                        Instantiate(board.regular_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                        Destroy(hit.collider.gameObject);
+                        this.haskey = true;
                         break;
+                        
                     case 'L':
-                        Debug.Log("Lock");
                         break;
-                    case 'P':
-                        Debug.Log("Spin");
+
+                    case 'R':
+                        die.transform.Rotate(0f, 180.0f, 0.0f, Space.World);
+                        die2.transform.Rotate(0f, 180.0f, 0.0f, Space.World);
                         break;
+
                     default:
                         Debug.Log("Default");
                         break;
@@ -116,9 +138,21 @@ public class dieMovement : MonoBehaviour
             {
                 switch ((char) hit.collider.gameObject.name[0])
                 {
-                    case 'X':      
-                        Debug.Log("Can't move there - Immuable");
+                    case 'H':      
                         return false;
+
+                    case 'X':      
+                        return false;
+
+                    case 'L':
+                        if(haskey){
+                            Instantiate(board.regular_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                            Destroy(hit.collider.gameObject);
+                            this.haskey = false;
+                            return true;
+                        } else {
+                            return false;
+                        }
 
                     default:
                         return true;
@@ -157,11 +191,26 @@ public class dieMovement : MonoBehaviour
                 fractionOfJourney = 0;
                 is_rotating = false;
 
-                this.transform.Translate(this.mov_dir);
+                die.transform.parent = null;
+                die2.transform.parent = null;
+
                 transformPivot.rotation = Quaternion.identity;
+                this.transform.Translate(this.mov_dir);
                 
-                die.transform.Rotate(rot_dir);
-                die2.transform.Rotate(rot_dir);
+                die.transform.parent = this.transform;
+                die2.transform.parent = this.transform;
+                die.transform.localPosition = Vector3.zero;
+                die2.transform.localPosition = Vector3.zero;
+                
+                die.transform.parent = this.p_x;
+                die2.transform.parent = this.p_mx;
+                
+                if(transformPivot == this.p_x)
+                {
+                    die2.transform.rotation = die.transform.rotation;
+                } else {
+                    die.transform.rotation = die2.transform.rotation;
+                }
 
                 apply_tile(this.transform.position);
             }

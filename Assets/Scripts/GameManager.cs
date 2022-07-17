@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject board;
+    public GameObject level_complete;
+
+    AudioSource level_complete_source;
+
     private boardBuilder bb;
     private Dictionary <string, DialogueTrigger> dialogues;
     private DialogueManager dm;
@@ -13,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     private int current_level = 0;
     private static string[] levels = new string[]{
-        "Assets/Levels/intro.lvl",
+        "Assets/Levels/test.lvl",
         "Assets/Levels/level1.lvl",
         "Assets/Levels/level2.lvl",
         "Assets/Levels/level3.lvl"
@@ -38,14 +42,18 @@ public class GameManager : MonoBehaviour
         {
             dialogues.Add(o.name, (DialogueTrigger) o);
         }
-        dialogues["bebz"].TriggerDialogue();
+        dialogues["Start"].TriggerDialogue();
         bb.loadLevel(levels[current_level], pos[current_level]);
+
+        level_complete = GameObject.Find("levelComplete");
+        level_complete_source = level_complete.GetComponent<AudioSource>();
     }
 
     public void NextBoard()
     {
-        dialogues["bebz"].TriggerDialogue();
+        dialogues["End"].TriggerDialogue();
         bb.clearBoard();
+        level_complete_source.Play();
         current_level++;
         bb.loadLevel(levels[current_level], pos[current_level]);
     }

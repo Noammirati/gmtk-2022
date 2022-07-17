@@ -257,6 +257,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105962213}
   m_CullTransparentMesh: 1
+--- !u!1 &210180911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210180912}
+  - component: {fileID: 210180913}
+  m_Layer: 0
+  m_Name: End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210180912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210180911}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1282520762}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210180913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210180911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - talker: 80
+      sentence: Wow
+      pic: 6
+    - talker: 80
+      sentence: You managed to complete all the levels. I'm pleasantly surprised
+      pic: 4
+    - talker: 72
+      sentence: Let's go steal some treats!
+      pic: 4
 --- !u!1 &224186368
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,11 +719,11 @@ Transform:
   m_Children:
   - {fileID: 749009765}
   - {fileID: 946540313}
-  - {fileID: 1348726221}
+  - {fileID: 1282520762}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &678806251
+--- !u!1 &728355397
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -676,37 +731,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 678806252}
-  - component: {fileID: 678806253}
+  - component: {fileID: 728355398}
+  - component: {fileID: 728355399}
   m_Layer: 0
-  m_Name: bebz
+  m_Name: Echec1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &678806252
+--- !u!4 &728355398
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678806251}
+  m_GameObject: {fileID: 728355397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1348726221}
-  m_RootOrder: 0
+  m_Father: {fileID: 1282520762}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &678806253
+--- !u!114 &728355399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678806251}
+  m_GameObject: {fileID: 728355397}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
@@ -714,9 +769,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - talker: 72
-      sentence: sjqhdcygfbujvnoj
-      pic: 0
+    - talker: 80
+      sentence: Well that was disa-pug-ting
+      pic: 3
 --- !u!1 &749009764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1095,176 @@ Transform:
   m_Father: {fileID: 1659697449}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 14.312, z: 0}
+--- !u!1 &945744932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 945744933}
+  - component: {fileID: 945744934}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &945744933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945744932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1282520762}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &945744934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945744932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - talker: 80
+      sentence: "Pug-tastic human, you\u2019re finally awake! "
+      pic: 6
+    - talker: 72
+      sentence: "I\u2026 I .. I don\u2019t understand..  what's going on?"
+      pic: 6
+    - talker: 80
+      sentence: 'QUIET! '
+      pic: 1
+    - talker: 80
+      sentence: "You know why you\u2019re here!"
+      pic: 8
+    - talker: 72
+      sentence: "\u2026"
+      pic: 8
+    - talker: 80
+      sentence: 'YOU HAVEN''T FED ME IN DAYS
+
+'
+      pic: 1
+    - talker: 72
+      sentence: 'Oh.. that..
+
+'
+      pic: 8
+    - talker: 72
+      sentence: "I\u2019m sorry sprinkles, I\u2019ve been very busy with work and
+        i completely forgot to do out and buy more\u2026 \r\n"
+      pic: 8
+    - talker: 80
+      sentence: 'GRRRRRR
+
+'
+      pic: 5
+    - talker: 72
+      sentence: 'You could have reminded me
+
+
+'
+      pic: 5
+    - talker: 80
+      sentence: "Don\u2019t you DARE pug the blame on me! \r\n\n"
+      pic: 1
+    - talker: 80
+      sentence: 'You told me you''d never forget ...
+
+
+'
+      pic: 6
+    - talker: 72
+      sentence: '...
+
+
+'
+      pic: 6
+    - talker: 72
+      sentence: "I'm very sorry sprinkles \n"
+      pic: 4
+    - talker: 80
+      sentence: '...
+
+'
+      pic: 4
+    - talker: 72
+      sentence: You CAN'T!
+      pic: 1
+    - talker: 80
+      sentence: You've broken my trust
+      pic: 8
+    - talker: 80
+      sentence: So now you must gain it back and help me steal ALL THE TREATS
+      pic: 5
+    - talker: 72
+      sentence: I can pay for the treats if you wan-
+      pic: 2
+    - talker: 80
+      sentence: QUIET
+      pic: 1
+    - talker: 80
+      sentence: You need to earn my trust again
+      pic: 8
+    - talker: 80
+      sentence: So I've planned a petshop heist and I need you and your opposable
+        thumbs
+      pic: 6
+    - talker: 72
+      sentence: "\u2026\r\n"
+      pic: 6
+    - talker: 80
+      sentence: It's NON NEGOTIABLE
+      pic: 5
+    - talker: 72
+      sentence: ...
+      pic: 5
+    - talker: 72
+      sentence: Ok sprinkles, I'll help. Shall we get going?
+      pic: 6
+    - talker: 80
+      sentence: HAHAHAHAHAHAHA
+      pic: 3
+    - talker: 80
+      sentence: Funny
+      pic: 3
+    - talker: 80
+      sentence: No ... first we need to test your skills
+      pic: 8
+    - talker: 72
+      sentence: How?
+      pic: 8
+    - talker: 80
+      sentence: I've designed an incredible petshop heist simulation
+      pic: 4
+    - talker: 72
+      sentence: I don't see the connection between the heist and this ...
+      pic: 4
+    - talker: 80
+      sentence: Don't question my BRILLIANT plan!
+      pic: 1
+    - talker: 72
+      sentence: ...
+      pic: 6
+    - talker: 80
+      sentence: Let's test your skills human
+      pic: 6
 --- !u!1 &946540312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1927,72 @@ Transform:
   m_Father: {fileID: 1049133818}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1230765053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230765054}
+  m_Layer: 0
+  m_Name: Echec2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230765054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230765053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1282520762}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1282520761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282520762}
+  m_Layer: 0
+  m_Name: Dialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282520762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282520761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 945744933}
+  - {fileID: 728355398}
+  - {fileID: 1230765054}
+  - {fileID: 210180912}
+  m_Father: {fileID: 660966483}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1287298276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,7 +2139,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 678806252}
+  - {fileID: 728355398}
   - {fileID: 2089831574}
   m_Father: {fileID: 660966483}
   m_RootOrder: 2
