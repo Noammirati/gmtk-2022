@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
 
     public Text dialoguePugText;
     public Text dialogueHumanText;
+    public GameObject nextButton;
 
     public Animator animator;
 
@@ -22,8 +23,6 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {  
-        //animator.SetBool("isOpen", true);
-
         sentences.Clear();
         foreach(Sentence s in dialogue.sentences)
         {
@@ -35,7 +34,8 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0){
+        if (sentences.Count == 0){           
+            nextButton.SetActive(false);
             EndDialogue();
             return;
         }
@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
         Sentence current = sentences.Dequeue();
         clearTexts();
         StopAllCoroutines();
+        nextButton.SetActive(false);
         StartCoroutine(TypeSentence(current));
         Debug.Log(current.talker == 'P' ? "Sprinkles" : "Human" + " : " + current.sentence);
     }
@@ -62,6 +63,7 @@ public class DialogueManager : MonoBehaviour
             d.text += c;
             yield return new WaitForSeconds(0.05f);
         }
+        nextButton.SetActive(true);
     }
 
 
@@ -70,6 +72,5 @@ public class DialogueManager : MonoBehaviour
     {
         clearTexts();
         Debug.Log("End of Convo");
-        //animator.SetBool("isOpen", false);
     }
 }
