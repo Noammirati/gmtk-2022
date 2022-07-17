@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -51,11 +52,17 @@ public class GameManager : MonoBehaviour
 
     public void NextBoard()
     {
-        dialogues["End"].TriggerDialogue();
+        //dialogues["echec"].TriggerDialogue();
         bb.clearBoard();
         level_complete_source.Play();
         current_level++;
-        bb.loadLevel(levels[current_level], pos[current_level]);
+        if (current_level < levels.Length)
+        {   
+            bb.loadLevel(levels[current_level], pos[current_level]);
+        } else 
+        {
+            dialogues["End"].TriggerDialogue(() => SceneManager.LoadScene("EndScene"));
+        }
     }
 
     public bool canPlay()
@@ -66,10 +73,5 @@ public class GameManager : MonoBehaviour
     public void setDialogueActive(bool isActive)
     {
         isDialogueActive = isActive;
-    }
-
-    public void LevelFinished()
-    {
-        
     }
 }

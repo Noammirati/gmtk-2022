@@ -819,6 +819,14 @@ MonoBehaviour:
   dialoguePugText: {fileID: 2078142667}
   dialogueHumanText: {fileID: 1411721902}
   nextButton: {fileID: 105962213}
+  t_serious: {fileID: 2800000, guid: 04303e4c223920c43986cf564d9c27f0, type: 3}
+  t_anxious: {fileID: 2800000, guid: db5ec4e2adaef5848a67da7a66e0e85c, type: 3}
+  t_shocked: {fileID: 2800000, guid: d7523fb98a52d7c4ab7437d82737b5ea, type: 3}
+  t_neutralOpen: {fileID: 2800000, guid: 9c6cab11e6fb4274daeb45cc10a0eb32, type: 3}
+  t_neutralClosed: {fileID: 2800000, guid: 97ee47eb6427e404e8887fef52599124, type: 3}
+  t_laughing: {fileID: 2800000, guid: 944dd1bf6900d2f4ba1cc98013e8ab10, type: 3}
+  t_angryClosed: {fileID: 2800000, guid: 345b4ea715859c8439f5e87f5e8d3def, type: 3}
+  t_angryOpen: {fileID: 2800000, guid: e42645b252bb0b04b8d00d4719b2131a, type: 3}
 --- !u!1 &797430768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,7 +2343,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 200}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1411721902
 MonoBehaviour:
@@ -2596,7 +2604,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 603, y: -100}
-  m_SizeDelta: {x: 500, y: 200}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899700915
 MonoBehaviour:
