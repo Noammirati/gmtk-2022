@@ -161,11 +161,26 @@ public class dieMovement : MonoBehaviour
                 fractionOfJourney = 0;
                 is_rotating = false;
 
-                this.transform.Translate(this.mov_dir);
+                die.transform.parent = null;
+                die2.transform.parent = null;
+
                 transformPivot.rotation = Quaternion.identity;
+                this.transform.Translate(this.mov_dir);
                 
-                die.transform.Rotate(rot_dir);
-                die2.transform.Rotate(rot_dir);
+                die.transform.parent = this.transform;
+                die2.transform.parent = this.transform;
+                die.transform.localPosition = Vector3.zero;
+                die2.transform.localPosition = Vector3.zero;
+                
+                die.transform.parent = this.p_x;
+                die2.transform.parent = this.p_mx;
+                
+                if(transformPivot == this.p_x)
+                {
+                    die2.transform.rotation = die.transform.rotation;
+                } else {
+                    die.transform.rotation = die2.transform.rotation;
+                }
 
                 apply_tile(this.transform.position);
             }
