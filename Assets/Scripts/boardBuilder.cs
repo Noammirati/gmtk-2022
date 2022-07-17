@@ -32,7 +32,7 @@ public class boardBuilder : MonoBehaviour
         };
     }
 
-    public void loadLevel(string path)
+    public void loadLevel(string path, Vector3 pos)
     {
         string level_str = System.IO.File.ReadAllText(path);
         string[] rows = level_str.Split('\n');
@@ -56,10 +56,15 @@ public class boardBuilder : MonoBehaviour
 
                 if(level[i, j][0] == 'S') {
                     this.die.transform.position = new Vector3(i, this.die.transform.position.y, j);
+                    this.die.transform.rotation = Quaternion.identity;
+
+                    this.die.transform.Find("pivot_X/Die").transform.rotation = Quaternion.identity;
+                    this.die.transform.Find("pivot_mX/Die").transform.rotation = Quaternion.identity;
                 }
             }
         }
-        this.transform.localPosition = new Vector3(0.5f + level.GetLength(0)/-2, 1, 0.5f + level.GetLength(1)/-2);
+
+        this.transform.position = pos;
     
     }
 
@@ -69,11 +74,6 @@ public class boardBuilder : MonoBehaviour
                 Object.Destroy(child.gameObject);
             }
         }
-    }
-
-    void Start()
-    {
-        loadLevel("Assets/Levels/intro.lvl");
     }
 
 }
