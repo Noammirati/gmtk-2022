@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731703, g: 0.13414727, b: 0.121078506, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -287,7 +287,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1282520762}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &210180913
 MonoBehaviour:
@@ -689,6 +689,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba6faa13a750ef478416025e120fb5a, type: 3}
+--- !u!1 &652569777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652569778}
+  - component: {fileID: 652569779}
+  m_Layer: 0
+  m_Name: Echec2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652569778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652569777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1282520762}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652569779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652569777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - talker: 80
+      sentence: "You\u2019re TERRIBLE human\r\n"
+      pic: 3
 --- !u!1 &660966482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,8 +1709,13 @@ MonoBehaviour:
     type: 3}
   wall_tile: {fileID: 8782850489472362729, guid: 1ff6b900896ae62408d5890f788a6706,
     type: 3}
+  hole_tile: {fileID: 0}
   icy_tile: {fileID: 8399899528612589207, guid: 66dbfd436e4813040a63350f1392d88d,
     type: 3}
+  cracked_tile: {fileID: 0}
+  key_tile: {fileID: 0}
+  lock_tile: {fileID: 0}
+  rotate_tile: {fileID: 0}
 --- !u!1 &1049133817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,6 +1765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation_speed: 0.5
   gm_object: {fileID: 1767663349}
+  board_object: {fileID: 0}
 --- !u!1 &1075611565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,8 +2150,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1230765054}
+  - component: {fileID: 1230765055}
   m_Layer: 0
-  m_Name: Echec2
+  m_Name: Reussi1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2115,8 +2171,25 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1282520762}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1230765055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230765053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4f87ee4b1af5246a019e8bd40fd1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - talker: 80
+      sentence: "Wow, you\u2019re a lot better at this then i expected\r\n"
+      pic: 7
 --- !u!1 &1282520761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2220,7 @@ Transform:
   m_Children:
   - {fileID: 945744933}
   - {fileID: 728355398}
+  - {fileID: 652569778}
   - {fileID: 1230765054}
   - {fileID: 210180912}
   m_Father: {fileID: 660966483}
@@ -2649,6 +2723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 1009689498}
+  level_complete: {fileID: 0}
 --- !u!1 &1899700913
 GameObject:
   m_ObjectHideFlags: 0
