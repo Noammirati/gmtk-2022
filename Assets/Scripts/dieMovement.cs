@@ -35,6 +35,7 @@ public class dieMovement : MonoBehaviour
         this.die = this.transform.Find("Die");
 
         die2 = Instantiate(die, die.transform.position, Quaternion.identity).transform;
+        die2.name = "Die";
         die.transform.parent = this.p_x;
         die2.transform.parent = this.p_mx;
     }
@@ -54,7 +55,55 @@ public class dieMovement : MonoBehaviour
         this.is_sliding = true;
     }
 
-    bool check_tile(Vector3 origin)
+    void apply_tile(Vector3 origin)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
+        {
+            int ignored;
+            if (int.TryParse(hit.collider.gameObject.name, out ignored) && hit.collider.gameObject.name[0] != '0')
+            {
+                return;
+            } else
+            {
+                switch ((char) hit.collider.gameObject.name[0])
+                {
+                    case 'X':      
+                        break;
+                    case 'F':
+                        Debug.Log("Finish");
+                        gm.NextBoard();
+                        break;
+                    case 'H':
+                        Debug.Log("Falling");
+                        break;
+                    case 'I':
+                        if (can_move(this.transform.position + this.mov_dir))
+                        {
+                            if (tile_type(this.transform.position) == 'I') {
+                                this.initial_position = this.transform.position;
+                                is_sliding = true;
+                            }
+                        }
+                        break;
+                    case 'K':
+                        Debug.Log("Key");
+                        break;
+                    case 'L':
+                        Debug.Log("Lock");
+                        break;
+                    case 'P':
+                        Debug.Log("Spin");
+                        break;
+                    default:
+                        Debug.Log("Default");
+                        break;
+                }
+            }
+        }
+    }
+
+    bool can_move(Vector3 origin)
     {
         RaycastHit hit;
         if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
@@ -70,34 +119,11 @@ public class dieMovement : MonoBehaviour
                     case 'X':      
                         Debug.Log("Can't move there - Immuable");
                         return false;
-                    case 'F':
-                        Debug.Log("Finish");
-                        gm.NextBoard();
-                        break;
-                    case 'H':
-                        Debug.Log("Falling");
-                        break;
-                    case 'I':
-                        Debug.Log("Ice");
-                        break;
-                    case 'K':
-                        Debug.Log("Key");
-                        break;
-                    case 'L':
-                        Debug.Log("Lock");
-                        break;
-                    case 'P':
-                        Debug.Log("Spin");
-                        break;
+
                     default:
-                        Debug.Log("Default");
                         return true;
                 }
             }
-            
-            // #TODO REMOVE THIS ONCE ALL CASES HANDLED
-            return true;
-
         }
         Debug.Log("Can't move there");
         return false;
@@ -137,13 +163,7 @@ public class dieMovement : MonoBehaviour
                 die.transform.Rotate(rot_dir);
                 die2.transform.Rotate(rot_dir);
 
-                if (check_tile(this.transform.position + this.mov_dir))
-                {
-                    if (tile_type(this.transform.position) == 'I') {
-                        this.initial_position = this.transform.position;
-                        is_sliding = true;
-                    }
-                }
+                apply_tile(this.transform.position);
             }
 
             return;
@@ -164,13 +184,7 @@ public class dieMovement : MonoBehaviour
                 fractionOfJourney = 0;
                 is_sliding = false;
 
-                if (check_tile(this.transform.position + this.mov_dir))
-                {
-                    if (tile_type(this.transform.position) == 'I') {
-                        this.initial_position = this.transform.position;
-                        is_sliding = true;
-                    }
-                }
+                apply_tile(this.transform.position);
             }
 
             return;
@@ -178,7 +192,7 @@ public class dieMovement : MonoBehaviour
 
         if (Input.GetKey("up"))
         {
-            if (check_tile(this.transform.position + new Vector3(0, 0, 1)))
+            if (can_move(this.transform.position + new Vector3(0, 0, 1)))
             {
                 this.die2.gameObject.SetActive(false);
                 this.die.gameObject.SetActive(true);
@@ -187,7 +201,7 @@ public class dieMovement : MonoBehaviour
             
         } else if (Input.GetKey("down"))
         {  
-            if (check_tile(this.transform.position + new Vector3(0, 0, -1)))
+            if (can_move(this.transform.position + new Vector3(0, 0, -1)))
             {
                 this.die2.gameObject.SetActive(true);
                 this.die.gameObject.SetActive(false);
@@ -195,7 +209,7 @@ public class dieMovement : MonoBehaviour
             }
         } else if (Input.GetKey("right"))
         {
-            if (check_tile(this.transform.position + new Vector3(1, 0, 0)))
+            if (can_move(this.transform.position + new Vector3(1, 0, 0)))
             {
                 this.die2.gameObject.SetActive(false);
                 this.die.gameObject.SetActive(true);
@@ -204,14 +218,12 @@ public class dieMovement : MonoBehaviour
         } else if (Input.GetKey("left"))
         {
             
-            if (check_tile(this.transform.position + new Vector3(-1, 0, 0)))
+            if (can_move(this.transform.position + new Vector3(-1, 0, 0)))
             {
                 this.die2.gameObject.SetActive(true);
                 this.die.gameObject.SetActive(false);
                 prep_rotation(new Vector3(0.0f, 0.0f, 90.0f), this.p_mx, new Vector3(-1, 0, 0));
             }
         }
-
-        
     }
 }
