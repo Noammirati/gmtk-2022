@@ -24,7 +24,19 @@ public class GameManager : MonoBehaviour
         "Assets/Levels/level3.lvl",
         "Assets/Levels/level4.lvl",
         "Assets/Levels/level5.lvl",
-        "Assets/Levels/level6.lvl"
+        "Assets/Levels/level6.lvl",
+        "Assets/Levels/level7.lvl"
+    };
+
+    private static string[] access = new string[]{
+        "Assets/Levels/intro.access",
+        "Assets/Levels/level1.access",
+        "Assets/Levels/level2.access",
+        "Assets/Levels/level3.access",
+        "Assets/Levels/level4.access",
+        "Assets/Levels/level5.access",
+        "Assets/Levels/level6.access",
+        "Assets/Levels/level7.access"
     };
 
     private static Vector3[] pos = new Vector3[]{
@@ -32,6 +44,10 @@ public class GameManager : MonoBehaviour
         new Vector3(-1.5f, 1f, -1.5f),
         new Vector3(-2.68f, 1f, -3.26f),
         new Vector3(-4.32f, 1f, -4.85f),
+        new Vector3(-2.83f, 1f, -1.58f),
+        new Vector3(-2.83f, 1f, -1.58f),
+        new Vector3(-2.83f, 1f, -1.58f),
+        new Vector3(-2.83f, 1f, -1.58f)
     };
 
     // Start is called before the first frame update
@@ -48,6 +64,7 @@ public class GameManager : MonoBehaviour
         }
         dialogues["Start"].TriggerDialogue();
         bb.loadLevel(levels[current_level], pos[current_level]);
+        bb.loadAccess(access[current_level], pos[current_level]);
 
         level_complete = GameObject.Find("levelComplete");
         level_complete_source = level_complete.GetComponent<AudioSource>();
@@ -64,6 +81,7 @@ public class GameManager : MonoBehaviour
         if (current_level < levels.Length)
         {   
             bb.loadLevel(levels[current_level], pos[current_level]);
+            bb.loadAccess(access[current_level], pos[current_level]);
         } else 
         {
             dialogues["End"].TriggerDialogue(() => SceneManager.LoadScene("EndScene"));
