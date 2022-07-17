@@ -52,7 +52,9 @@ public class GameManager : MonoBehaviour
 
     public void NextBoard()
     {
-        //dialogues["echec"].TriggerDialogue();
+        if (current_level == 0){
+            dialogues["Reussi1"].TriggerDialogue();
+        }
         bb.clearBoard();
         level_complete_source.Play();
         current_level++;
@@ -61,7 +63,10 @@ public class GameManager : MonoBehaviour
             bb.loadLevel(levels[current_level], pos[current_level]);
         } else 
         {
-            dialogues["End"].TriggerDialogue(() => SceneManager.LoadScene("EndScene"));
+            dialogues["End"].TriggerDialogue(() => {
+                yield return new WaitForSeconds(1);
+                SceneManager.LoadScene("EndScene");
+            });
         }
     }
 

@@ -108,6 +108,8 @@ public class DialogueManager : MonoBehaviour
     {
         gm.setDialogueActive(false);
         clearTexts();
+        GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_BaseMap", t_neutralOpen);
+        GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_EmissionMap", t_neutralOpen);
         if (callback != null)
         {
             callback();
