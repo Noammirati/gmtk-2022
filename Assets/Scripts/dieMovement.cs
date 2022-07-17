@@ -24,6 +24,7 @@ public class dieMovement : MonoBehaviour
 
     private GameManager gm;
 
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -38,6 +39,8 @@ public class dieMovement : MonoBehaviour
         die2.name = "Die";
         die.transform.parent = this.p_x;
         die2.transform.parent = this.p_mx;
+
+
     }
 
     void prep_rotation(Vector3 rot_dir, Transform transformPivot, Vector3 mov_dir) {
@@ -72,6 +75,7 @@ public class dieMovement : MonoBehaviour
                         break;
                     case 'F':
                         Debug.Log("Finish");
+
                         gm.NextBoard();
                         break;
                     case 'H':
