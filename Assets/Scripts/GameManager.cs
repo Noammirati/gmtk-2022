@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
         "Assets/Levels/level3.lvl",
         "Assets/Levels/level4.lvl",
         "Assets/Levels/level5.lvl",
-        "Assets/Levels/level6.lvl"
+        "Assets/Levels/level6.lvl",
+        "Assets/Levels/level7.lvl"
     };
 
     private static Vector3[] pos = new Vector3[]{
