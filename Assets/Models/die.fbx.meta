@@ -12,8 +12,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: 1 border
+    second: {fileID: 2100000, guid: 07edece3587495e4b8e8f47d3c83492c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: 2
     second: {fileID: 2100000, guid: 18b4935adc532ab418d5f2951aee20e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2 border
+    second: {fileID: 2100000, guid: b5cd5a30df93df84dbee2b963cb498fe, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -22,8 +32,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: 3 border
+    second: {fileID: 2100000, guid: 315e5d4529813254494a0a8a39c2710e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: 4
     second: {fileID: 2100000, guid: bf9c80bb344a9a942a5ad7f07bf7595d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4 border
+    second: {fileID: 2100000, guid: 9eae0e8398e8d6448a804f864970858a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -32,8 +52,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: 5 border
+    second: {fileID: 2100000, guid: 8c65c769163feeb4ca4dd91e6b07aeea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: 6
     second: {fileID: 2100000, guid: afed4dbaa0c71714c87ca762ea2739e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 6 border
+    second: {fileID: 2100000, guid: 9aa3989ece19ee645984cd0e9c04ce66, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

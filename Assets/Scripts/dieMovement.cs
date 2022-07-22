@@ -14,11 +14,12 @@ public class dieMovement : MonoBehaviour
 
     private Transform transformPivot;
     private Vector3 initial_position;
-    
+    private Quaternion initial_rotation;
+
     private bool is_rotating = false;
     private bool is_sliding = false;
+    private bool is_turning = false;
 
-    private int time_start_rotating;
     private float fractionOfJourney;
     private Vector3 rot_dir, mov_dir;
 
@@ -53,15 +54,10 @@ public class dieMovement : MonoBehaviour
         this.is_rotating = true;
     }
 
-    void slide(Vector3 direction)
-    {
-        this.mov_dir = direction;
-
-        this.is_sliding = true;
-    }
-
     void apply_tile(Vector3 origin)
     {
+        GameObject go;
+        Debug.DrawRay(origin, Vector3.down, Color.red, 1f, false);
         RaycastHit hit;
         if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
         {
@@ -92,8 +88,11 @@ public class dieMovement : MonoBehaviour
                         break;
 
                     case 'C':
-                        Instantiate(board.hole_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                        go = Instantiate(board.regular_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                        go.transform.parent = board.transform;
+                        go.name = "0";
                         Destroy(hit.collider.gameObject);
+                        Destroy(get_access(origin));
                         if (can_move(this.transform.position + this.mov_dir))
                         {
                             this.initial_position = this.transform.position;
@@ -102,8 +101,11 @@ public class dieMovement : MonoBehaviour
                         break;
 
                     case 'K':
-                        Instantiate(board.regular_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                        go = Instantiate(board.regular_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                        go.transform.parent = board.transform;
+                        go.name = "0";
                         Destroy(hit.collider.gameObject);
+                        Destroy(get_access(origin));
                         this.haskey = true;
                         break;
                         
@@ -111,20 +113,32 @@ public class dieMovement : MonoBehaviour
                         break;
 
                     case 'R':
-                        die.transform.Rotate(0f, 180.0f, 0.0f, Space.World);
-                        die2.transform.Rotate(0f, 180.0f, 0.0f, Space.World);
+                        this.initial_rotation = die.transform.rotation;
+                        hit.collider.gameObject.transform.Rotate(0, 180, 0);
+                        is_turning = true;
                         break;
 
                     default:
-                        Debug.Log("Default");
                         break;
                 }
             }
         }
     }
 
+    GameObject get_access(Vector3 origin)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Access")))
+        {
+            return hit.collider.gameObject;
+        }
+
+        return null;
+    }
+
     bool can_move(Vector3 origin)
     {
+        GameObject go;
         RaycastHit hit;
         if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
         {
@@ -144,8 +158,11 @@ public class dieMovement : MonoBehaviour
 
                     case 'L':
                         if(haskey){
-                            Instantiate(board.regular_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                            go = Instantiate(board.regular_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
+                            go.transform.parent = board.transform;
+                            go.name = "0";
                             Destroy(hit.collider.gameObject);
+                            Destroy(get_access(origin));
                             this.haskey = false;
                             return true;
                         } else {
@@ -157,7 +174,6 @@ public class dieMovement : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Can't move there");
         return false;
     }
 
@@ -196,12 +212,7 @@ public class dieMovement : MonoBehaviour
                         min_index = i;
                     }
                 }
-
-                Debug.Log("Min index: " + min_index);
-                Debug.Log("access_char: " + access_char);
-                Debug.Log("access_int: " + access_int);
-                Debug.Log(min_index+1 == access_int);
-
+                
                 return (min_index+1 == access_int);
             }
         }
@@ -225,13 +236,32 @@ public class dieMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(is_turning)
+        {
+            fractionOfJourney = fractionOfJourney + (Time.deltaTime / rotation_speed);
+            Vector3 rotation = Vector3.Lerp(Vector3.zero, new Vector3(0, 180f, 0), fractionOfJourney);
+
+            Vector3 r_new = initial_rotation.eulerAngles + rotation;
+
+            die.transform.rotation = Quaternion.Euler(r_new);
+            die2.transform.rotation = Quaternion.Euler(r_new);
+
+            if (fractionOfJourney >= 1)
+            {
+                fractionOfJourney = 0;
+                is_turning = false;
+            }
+
+            return;
+        }
+
         if(is_rotating)
         {
             fractionOfJourney = fractionOfJourney + (Time.deltaTime / rotation_speed);
 
             Vector3 rotation = Vector3.Lerp(Vector3.zero, new Vector3(rot_dir.x, rot_dir.y, rot_dir.z), fractionOfJourney);
 
-            transformPivot.transform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
+            transformPivot.transform.rotation = Quaternion.Euler(rotation.x,rotation.y, rotation.z);
             
             if(fractionOfJourney >= 1) {
                 fractionOfJourney = 0;

@@ -70,8 +70,6 @@ public class DialogueManager : MonoBehaviour
 
         GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_BaseMap", textures[current.pic]);
         GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_EmissionMap", textures[current.pic]);
-
-        Debug.Log(current.talker == 'P' ? "Sprinkles" : "Human" + " : " + current.sentence);
     }
     
     void startDialogueB(Dialogue dialogue)
