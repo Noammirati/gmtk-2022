@@ -140,6 +140,7 @@ public class dieMovement : MonoBehaviour
     {
         GameObject go;
         RaycastHit hit;
+        Debug.DrawRay(origin, Vector3.down, Color.blue, 1f, false);
         if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Board")))
         {
             int ignored;
@@ -271,7 +272,7 @@ public class dieMovement : MonoBehaviour
                 die2.transform.parent = null;
 
                 transformPivot.rotation = Quaternion.identity;
-                this.transform.Translate(this.mov_dir);
+                this.transform.localPosition += this.mov_dir;
                 
                 die.transform.parent = this.transform;
                 die2.transform.parent = this.transform;

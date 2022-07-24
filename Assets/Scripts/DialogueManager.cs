@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<Sentence> sentences;
     private GameManager gm;
     private Dictionary<int, Texture> textures;
+    private Dictionary<int, AudioSource> sounds;
     private Action callback;
 
 
@@ -31,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<Sentence>();
         gm = FindObjectOfType<GameManager>();
+
         textures = new Dictionary<int, Texture>();
         textures.Add(8, t_serious);
         textures.Add(2, t_anxious);
@@ -40,6 +42,11 @@ public class DialogueManager : MonoBehaviour
         textures.Add(3, t_laughing);
         textures.Add(5, t_angryClosed);
         textures.Add(1, t_angryOpen);
+
+        sounds = new Dictionary<int, AudioSource>();
+        sounds.Add(6, GameObject.Find("rire1").GetComponent<AudioSource>());
+        sounds.Add(7, GameObject.Find("rire2").GetComponent<AudioSource>());
+        sounds.Add(3, GameObject.Find("rire3").GetComponent<AudioSource>());
     }
 
     public void StartDialogue (Dialogue dialogue)
@@ -70,6 +77,8 @@ public class DialogueManager : MonoBehaviour
 
         GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_BaseMap", textures[current.pic]);
         GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_EmissionMap", textures[current.pic]);
+
+        sounds[current.pic].Play();
     }
     
     void startDialogueB(Dialogue dialogue)

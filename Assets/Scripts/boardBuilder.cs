@@ -68,8 +68,8 @@ public class boardBuilder : MonoBehaviour
         levels_dict.Add("test", "0 0 0\n0 R 0\nS 0 R\nF 0 0");
         access_dict.Add("test", "1 2 3\n4 5 6\n1 2 3\n4 6 5");
 
-        levels_dict.Add("intro", "X X X X\nX 0 F X\nX S 0 X\nX X X X");
-        access_dict.Add("intro", "0 0 0 0\n0 0 0 0\n0 0 0 0\n0 0 0 0");
+        levels_dict.Add("intro", "0 F\nS 0");
+        access_dict.Add("intro", "0 0\n0 0");
 
         levels_dict.Add("level1", "S 0 0\n0 0 0\n0 0 F");
         access_dict.Add("level1", "0 0 0\n0 0 0\n0 0 0");
@@ -83,22 +83,57 @@ public class boardBuilder : MonoBehaviour
         levels_dict.Add("level4", "X R X X\n0 L H K\nH 0 I 0\nH 0 H I\nS 0 0 0\nF X X X");
         access_dict.Add("level4", "0 0 0 0\n0 6 0 6\n0 0 0 0\n0 0 0 0\n0 0 0 0\n2 0 0 0");
 
-        levels_dict.Add("level5", "X 0 C 0 I 0\nX C H 0 H 0\n0 0 0 0 H 0\nK X L 0 H 0\nX X X X F S");
-        access_dict.Add("level5", "0 0 0 0 0 0\n0 0 0 0 0 0\n0 0 0 0 0 0\n5 0 0 0 0 0\n0 0 0 0 3 0");
+        levels_dict.Add("level5", "X X 0 K X\n0 C 0 X X\nC H 0 L X\n0 0 0 0 X\nI H H H F\n0 0 0 0 S");
+        access_dict.Add("level5", "0 0 0 5 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 3\n0 0 0 0 0");
 
-        levels_dict.Add("level6", "X 0 0 0 I 0\nX I X 0 X 0\nF 0 0 I 0 0\nX 0 X 0 X I\nX 0 I 0 0 S");
-        access_dict.Add("level6", "0 0 0 0 0 0\n0 0 0 0 0 0\n6 0 0 0 0 0\n0 0 0 0 0 0\n0 0 0 0 0 0");
+        levels_dict.Add("level6", "X X F X X\n0 I 0 0 0\n0 X 0 X I\n0 0 I 0 0\nI X 0 X 0\n0 0 0 I S");
+        access_dict.Add("level6", "0 0 6 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0");
 
-        levels_dict.Add("level7", "0 C 0 0 0 0 0\n0 H C H 0 H 0\n0 0 0 S I 0 I\nX 0 0 H 0 I 0\nF L 0 C 0 0 K");
-        access_dict.Add("level7", "0 0 0 0 0 0 0\n0 0 0 0 0 0 0\n0 0 0 0 0 0 0\n0 0 0 0 0 0 0\n2 0 0 0 0 0 4");
+        levels_dict.Add("level7", "0 0 0 X F\nC H 0 0 L\n0 C 0 0 0\n0 H S H C\n0 0 I 0 0\n0 H 0 I 0\n0 0 I 0 K");
+        access_dict.Add("level7", "0 0 0 0 2\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 4");
     }
 
     public void realign(Vector3 pos) {
         this.transform.position = pos;
     }
 
+    private void loadAccess(string path)
+    {
+        string level_str = access_dict[path];
+        string[] rows = level_str.Split('\n');
+
+        int width = rows[0].Split(' ').Length;
+        int height = rows.Length;
+
+        string[,] access;
+        access = new string[height, width];
+        for (int i = 0; i < height; i++)
+        {
+            string[] row = rows[i].Split(' ');
+            for (int j = 0; j < width; j++)
+            {
+                access[i, j] = row[j];
+            }
+        }
+
+        for (int i = 0; i < access.GetLength(0); i++)
+        {
+            for (int j = 0; j < access.GetLength(1); j++)
+            {
+                if (access[i, j] != "0")
+                {
+                    GameObject clone = Instantiate(this.access_obj[access[i, j][0]], new Vector3(i, 0.1f, j), Quaternion.identity);
+                    clone.transform.parent = this.transform;
+                    clone.name = access[i, j] + "_access";
+                }
+            }
+        }
+    }
+
     public void loadLevel(string path)
     {
+        this.transform.position = Vector3.zero;
+
         string level_str = levels_dict[path];
         string[] rows = level_str.Split('\n');
         
@@ -121,7 +156,7 @@ public class boardBuilder : MonoBehaviour
                 clone.name = lvl[i, j];
 
                 if(lvl[i, j][0] == 'S') {
-                    this.die.transform.position = new Vector3(i, this.die.transform.position.y, j);
+                    this.die.transform.position = new Vector3(i, 0.5f, j);
                     this.die.transform.rotation = Quaternion.identity;
 
                     this.die.transform.Find("pivot_X/Die").transform.rotation = Quaternion.identity;
@@ -129,36 +164,12 @@ public class boardBuilder : MonoBehaviour
                 }
             }
         }
-    }
 
-    public void loadAccess(string path)
-    {
-        string level_str = access_dict[path];
-        string[] rows = level_str.Split('\n');
+        loadAccess(path);
 
-        Debug.Log(rows[1]);
-
-        int width = rows[0].Split(' ').Length;
-        int height = rows.Length;
-
-        string[,] access;
-        access = new string[height,width];
-        for(int i = 0; i < height; i++) {
-            string[] row = rows[i].Split(' ');
-            for(int j = 0; j < width; j++) {
-                access[i,j] = row[j];
-            }
-        }
-        
-        for(int i = 0; i < access.GetLength(0); i++){
-            for(int j = 0; j < access.GetLength(1); j++) {
-                if(access[i, j] != "0"){
-                    GameObject clone = Instantiate(this.access_obj[access[i, j][0]], new Vector3(i, 0.1f, j), Quaternion.identity);
-                    clone.transform.parent = this.transform;
-                    clone.name = access[i, j] + "_access";
-                }
-            }
-        }
+        float x = (0.5f - height/2f);
+        float z = (0.5f - width/2f - 1);
+        this.transform.position = new Vector3(x, 0.0f, z);
     }
 
     public void clearBoard() {
