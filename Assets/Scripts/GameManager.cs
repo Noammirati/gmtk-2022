@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject board;
     public GameObject level_complete;
 
+    public static int score;
+
     AudioSource level_complete_source;
 
     private boardBuilder bb;
@@ -21,10 +23,17 @@ public class GameManager : MonoBehaviour
         "intro", "level1", "level2", "level3", "level4", "level5", "level6", "level7"
     };
 
+    void LoadLevel1() {
+        bb.loadLevel(levels[current_level]);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
         bb = board.GetComponent<boardBuilder>();
+        level_complete = GameObject.Find("levelComplete");
+        level_complete_source = level_complete.GetComponent<AudioSource>();
 
         dm = FindObjectOfType<DialogueManager>();
         var dtObj = FindObjectsOfType(typeof(DialogueTrigger));
@@ -34,31 +43,50 @@ public class GameManager : MonoBehaviour
             dialogues.Add(o.name, (DialogueTrigger) o);
         }
 
-        //dialogues["Start"].TriggerDialogue();
+        dialogues["Start"].TriggerDialogue(LoadLevel1);
 
-        bb.loadLevel(levels[current_level]);
-        //bb.realign(pos[levels[current_level]]);
+        //Debug.Log("ici");
 
-        level_complete = GameObject.Find("levelComplete");
-        level_complete_source = level_complete.GetComponent<AudioSource>();
+        //bb.loadLevel(levels[current_level]);
     }
 
     public void NextBoard()
     {
-        if (current_level == 0){
-            dialogues["Reussi1"].TriggerDialogue();
-        }
-        bb.clearBoard();
         level_complete_source.Play();
-        current_level++;
-        if (current_level < levels.Length)
-        {
-            bb.loadLevel(levels[current_level]);
-//          bb.realign(pos[levels[current_level]]);
-        } else 
-        {
-            dialogues["End"].TriggerDialogue(() => SceneManager.LoadScene("EndScene"));
+
+        void afterDialogue(){
+            bb.clearBoard();
+            current_level++;
+            if (current_level < levels.Length)
+            {
+                bb.loadLevel(levels[current_level]);
+            }
+            else
+            {
+                dialogues["End"].TriggerDialogue(() => SceneManager.LoadScene("EndScene"));
+            }
         }
+
+        if (current_level == 0){
+            dialogues["ReussiIntro"].TriggerDialogue(afterDialogue);
+        } else {
+            string k = "Reussi" + (current_level);
+            if (dialogues.ContainsKey(k)){
+                dialogues[k].TriggerDialogue(afterDialogue);
+            } else {
+                afterDialogue();
+            }
+        }
+    }
+
+    public void restartLevel(){
+        bb.clearBoard();
+        bb.resetBoard();
+
+        var resetDialogues = new List<string> {"Echec1", "Echec2", "Echec3"};
+
+        int n = Random.Range(0, resetDialogues.Count);
+        dialogues[resetDialogues[n]].TriggerDialogue();
     }
 
     public bool canPlay()

@@ -315,6 +315,7 @@ public class dieMovement : MonoBehaviour
 
             return;
         }
+
         if (!gm.canPlay())
         {
             return;
@@ -324,15 +325,17 @@ public class dieMovement : MonoBehaviour
         {
             if (can_move(this.transform.position + new Vector3(0, 0, 1)))
             {
+                GameManager.score += 1;
                 this.die2.gameObject.SetActive(false);
                 this.die.gameObject.SetActive(true);
                 prep_rotation(new Vector3(90.0f, 0.0f, 0.0f), this.p_x, new Vector3(0, 0, 1));
             }
             
         } else if (Input.GetKey("down"))
-        {  
+        {
             if (can_move(this.transform.position + new Vector3(0, 0, -1)))
             {
+                GameManager.score += 1;
                 this.die2.gameObject.SetActive(true);
                 this.die.gameObject.SetActive(false);
                 prep_rotation(new Vector3(-90.0f, 0.0f, 0.0f), this.p_mx, new Vector3(0, 0, -1));
@@ -341,15 +344,16 @@ public class dieMovement : MonoBehaviour
         {
             if (can_move(this.transform.position + new Vector3(1, 0, 0)))
             {
+                GameManager.score += 1;
                 this.die2.gameObject.SetActive(false);
                 this.die.gameObject.SetActive(true);
                 prep_rotation(new Vector3(0.0f, 0.0f, -90.0f), this.p_x, new Vector3(1, 0, 0));
             }
         } else if (Input.GetKey("left"))
         {
-            
             if (can_move(this.transform.position + new Vector3(-1, 0, 0)))
             {
+                GameManager.score += 1;
                 this.die2.gameObject.SetActive(true);
                 this.die.gameObject.SetActive(false);
                 prep_rotation(new Vector3(0.0f, 0.0f, 90.0f), this.p_mx, new Vector3(-1, 0, 0));

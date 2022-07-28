@@ -44,9 +44,9 @@ public class DialogueManager : MonoBehaviour
         textures.Add(1, t_angryOpen);
 
         sounds = new Dictionary<int, AudioSource>();
-        sounds.Add(6, GameObject.Find("rire1").GetComponent<AudioSource>());
-        sounds.Add(7, GameObject.Find("rire2").GetComponent<AudioSource>());
-        sounds.Add(3, GameObject.Find("rire3").GetComponent<AudioSource>());
+        sounds.Add(1, GameObject.Find("rire1").GetComponent<AudioSource>());
+        sounds.Add(5, GameObject.Find("rire2").GetComponent<AudioSource>());
+        sounds.Add(3, GameObject.Find("piano").GetComponent<AudioSource>());
     }
 
     public void StartDialogue (Dialogue dialogue)
@@ -78,7 +78,13 @@ public class DialogueManager : MonoBehaviour
         GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_BaseMap", textures[current.pic]);
         GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_EmissionMap", textures[current.pic]);
 
-        sounds[current.pic].Play();
+        try
+        {
+            sounds[current.pic].Play();
+        }
+        catch
+        {
+        }
     }
     
     void startDialogueB(Dialogue dialogue)
@@ -106,7 +112,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in sentence.sentence.ToCharArray())
         {
             d.text += c;
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.000000003f);
         }
         nextButton.SetActive(true);
     }
@@ -117,10 +123,9 @@ public class DialogueManager : MonoBehaviour
         clearTexts();
         GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_BaseMap", t_neutralOpen);
         GameObject.Find("Plane").GetComponent<Renderer>().material.SetTexture("_EmissionMap", t_neutralOpen);
-        if (callback != null)
-        {
-            callback();
-        }
+        
+        callback?.Invoke();
+        
         Debug.Log("End of Convo");
     }
 }

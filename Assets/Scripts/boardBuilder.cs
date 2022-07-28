@@ -34,6 +34,7 @@ public class boardBuilder : MonoBehaviour
 
     private Dictionary<string ,string> levels_dict;
     private Dictionary<string, string> access_dict;
+    private string lastLevelPath;
 
     // Start is called before the first frame update
     void Awake()
@@ -72,24 +73,24 @@ public class boardBuilder : MonoBehaviour
         access_dict.Add("intro", "0 0\n0 0");
 
         levels_dict.Add("level1", "S 0 0\n0 0 0\n0 0 F");
-        access_dict.Add("level1", "0 0 0\n0 0 0\n0 0 0");
+        access_dict.Add("level1", "0 0 0\n0 0 0\n0 0 1");
 
         levels_dict.Add("level2", "0 0 0 F\n0 H 0 H\n0 I S 0");
-        access_dict.Add("level2", "0 0 0 0\n0 0 0 0\n0 0 0 0");
+        access_dict.Add("level2", "0 0 0 1\n0 0 0 0\n0 0 0 0");
 
         levels_dict.Add("level3", "F 0 0 0\n0 H H 0\n0 0 I S\nH 0 0 0");
-        access_dict.Add("level3", "0 0 0 0\n0 0 0 0\n0 0 0 0\n0 0 0 0");
+        access_dict.Add("level3", "1 0 0 0\n0 0 0 0\n0 0 0 0\n0 0 0 0");
 
         levels_dict.Add("level4", "X R X X\n0 L H K\nH 0 I 0\nH 0 H I\nS 0 0 0\nF X X X");
         access_dict.Add("level4", "0 0 0 0\n0 6 0 6\n0 0 0 0\n0 0 0 0\n0 0 0 0\n2 0 0 0");
 
-        levels_dict.Add("level5", "X X 0 K X\n0 C 0 X X\nC H 0 L X\n0 0 0 0 X\nI H H H F\n0 0 0 0 S");
-        access_dict.Add("level5", "0 0 0 5 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 3\n0 0 0 0 0");
+        levels_dict.Add("level5", "X 0 C 0 I 0\nX C H 0 H 0\n0 0 0 0 H 0\nK X L 0 H 0\nX X X X F S");
+        access_dict.Add("level5", "0 0 0 0 0 0\n0 0 0 0 0 0\n0 0 0 0 0 0\n5 0 0 0 0 0\n0 0 0 0 3 0");
 
         levels_dict.Add("level6", "X X F X X\n0 I 0 0 0\n0 X 0 X I\n0 0 I 0 0\nI X 0 X 0\n0 0 0 I S");
         access_dict.Add("level6", "0 0 6 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0");
 
-        levels_dict.Add("level7", "0 0 0 X F\nC H 0 0 L\n0 C 0 0 0\n0 H S H C\n0 0 I 0 0\n0 H 0 I 0\n0 0 I 0 K");
+        levels_dict.Add("level7", "0 0 0 X F\nC H 0 0 L\n0 C 0 0 0\n0 H S H C\n0 0 C 0 0\n0 H 0 C 0\n0 0 C 0 K");
         access_dict.Add("level7", "0 0 0 0 2\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 4");
     }
 
@@ -99,6 +100,8 @@ public class boardBuilder : MonoBehaviour
 
     private void loadAccess(string path)
     {
+        this.lastLevelPath = path;
+
         string level_str = access_dict[path];
         string[] rows = level_str.Split('\n');
 
@@ -178,6 +181,10 @@ public class boardBuilder : MonoBehaviour
                 Object.Destroy(child.gameObject);
             }
         }
+    }
+    public void resetBoard()
+    {
+        loadLevel(this.lastLevelPath);
     }
 
 }
