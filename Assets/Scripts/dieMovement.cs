@@ -28,6 +28,8 @@ public class dieMovement : MonoBehaviour
     private boardBuilder board;
     private bool haskey;
 
+    private static int soundIteration = 0;
+    AudioSource[] movementSource;
 
     // Start is called before the first frame update
     void Awake()
@@ -44,6 +46,8 @@ public class dieMovement : MonoBehaviour
         die2.name = "Die";
         die.transform.parent = this.p_x;
         die2.transform.parent = this.p_mx;
+
+        movementSource = this.GetComponents<AudioSource>();
     }
 
     void prep_rotation(Vector3 rot_dir, Transform transformPivot, Vector3 mov_dir) {
@@ -159,6 +163,7 @@ public class dieMovement : MonoBehaviour
 
                     case 'L':
                         if(haskey){
+                            movementSource[7].Play();
                             go = Instantiate(board.regular_tile, hit.collider.gameObject.transform.position, Quaternion.identity);
                             go.transform.parent = board.transform;
                             go.name = "0";
@@ -249,6 +254,8 @@ public class dieMovement : MonoBehaviour
 
             if (fractionOfJourney >= 1)
             {
+                movementSource[soundIteration % 7].Play();
+                soundIteration++;
                 fractionOfJourney = 0;
                 is_turning = false;
             }
@@ -265,6 +272,8 @@ public class dieMovement : MonoBehaviour
             transformPivot.transform.rotation = Quaternion.Euler(rotation.x,rotation.y, rotation.z);
             
             if(fractionOfJourney >= 1) {
+                movementSource[soundIteration % 7].Play();
+                soundIteration++;
                 fractionOfJourney = 0;
                 is_rotating = false;
 
